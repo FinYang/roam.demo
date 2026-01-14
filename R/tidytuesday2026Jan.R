@@ -29,12 +29,3 @@ tidytuesday2026Jan <- new_roam(
     }
   }
 )
-
-is_valid_version <- function(x) {
-  .standard_regexps()$valid_package_version
-  valid_numeric_version_regexp <- sprintf(
-    "^%s$",
-    .standard_regexps()$valid_package_version
-  )
-  grepl(valid_numeric_version_regexp, x)
-}
