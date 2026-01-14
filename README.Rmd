@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# roam.demo
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of roam.demo is to demonstrate the use of [`roam`](https://github.com/FinYang/roam) in a package.
+
+This package contains two (remote) dataset. 
+
+- `bee`: Bee colony data from the 2022-01-11 [TidyTuesday project](https://github.com/rfordatascience/tidytuesday).
+- `tidytuesday2026Jan`: Versioned data from 2026-01-13 and 2026-01-20 [TidyTuesday project](https://github.com/rfordatascience/tidytuesday)
+    - Includes versions `2026-01-13` and `2026-01-20`
+
+## Installation
+
+You can install the development version of roam.demo like so:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("FinYang/roam.demo")
+```
+## Documentation
+
+The documentation in this package is generated using `roxygen2`. For each roam object, the `format` tag must be explicitly defined. When `roxygen2` generates the *Format* section, it evaluates the object and records the structure of the resulting output. If a roam object is not cached locally, this evaluation returns `NULL`, and the documented format will incorrectly reflect a `NULL` object. As a result, the generated documentation may vary across devices depending on their local cache state. To avoid this inconsistency, the `format` tag should always be explicitly specified for roam objects.
+
+## Example
+
+
+```{r example}
+library(roam.demo)
+options(roam.autodownload = TRUE)
+
+head(bee)
+```
+
+
+
+```{r}
+head(tidytuesday2026Jan)
+
+invisible(roam_install(tidytuesday2026Jan, version = "2026-01-13"))
+head(tidytuesday2026Jan)
+```
